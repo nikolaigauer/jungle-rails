@@ -6,7 +6,7 @@ main section.categories-show {
     flex-direction:  row;
     flex-wrap:       wrap;
     justify-content: space-around;
-
+      // Nik edits below
     .product {
       // flex:      1;
       max-width: 260px;
@@ -49,6 +49,19 @@ main section.categories-show {
         border-top-right-radius: 4px;
         border-bottom-left-radius: 20px;
         font-size: 0.8em;
+      }
+
+      aside.soldout {
+        color: white;
+        position: absolute;
+        width: 8em;
+        top: 0;
+        right: 168px;
+        padding: 10px;
+        background-color: #fdcbcb;
+        border-top-left-radius: 4px;
+        border-bottom-right-radius: 20px;
+        font-size: 0.8em;        
       }
 
       &:hover {
