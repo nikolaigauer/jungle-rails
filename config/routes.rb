@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :models
   namespace :admin do
     resources :categories
   end
