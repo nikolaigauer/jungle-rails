@@ -27,7 +27,19 @@
     </div>
 
      <h2>Reviews:</h2>
-     <%= if current_user %>
+     <%= form_for new_review_path	 do |f| %>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  <%= f.label :rating %> <%= f.select :rating, [1, 2, 3, 4, 5] %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
   </article>
 

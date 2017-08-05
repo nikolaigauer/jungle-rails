@@ -142,7 +142,7 @@ Review.create!({
   description: "HOLY MOOOOOLYYYYY SUCH A GOOD BOOKSHELF!",
   rating: 4,
   user_id: 1,
-  product_id: 1
+  product_id: 12
 })
 
 
