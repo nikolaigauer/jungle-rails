@@ -138,11 +138,11 @@ cat3.products.create!({
 
 Review.destroy_all
 
-product1 = Product.find_or_create_by! name: 'Red Bookshelf'
-
-product1.reviews.create!({
-  description: "HOLY MOOOOOLYYYYY SUCH A GOOD BOOKSHELF!"
-
+Review.create!({
+  description: "HOLY MOOOOOLYYYYY SUCH A GOOD BOOKSHELF!",
+  rating: 4,
+  user_id: 1,
+  product_id: 1
 })
 
 
