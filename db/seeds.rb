@@ -30,6 +30,7 @@ cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 cat4 = Category.find_or_create_by! name: 'Cheese'
 
+
 ## PRODUCTS
 
 puts "Re-creating Products ..."
@@ -131,6 +132,17 @@ cat3.products.create!({
   image: open_asset('furniture3.jpg'),
   quantity: 23,
   price: 2_483.75
+})
+
+## REVIEWS
+
+Review.destroy_all
+
+product1 = Product.find_or_create_by! name: 'Red Bookshelf'
+
+product1.reviews.create!({
+  description: "HOLY MOOOOOLYYYYY SUCH A GOOD BOOKSHELF!"
+
 })
 
 
