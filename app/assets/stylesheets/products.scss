@@ -51,6 +51,17 @@ main section.categories-show {
         font-size: 0.8em;
       }
 
+      aside.review {
+        position: absolute;
+        top: 5em;
+        right: 0;
+        padding: 10px;
+        background-color: #eee;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        font-size: 0.8em;
+      }
+
       aside.soldout {
         color: white;
         position: absolute;
