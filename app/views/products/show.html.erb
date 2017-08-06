@@ -28,7 +28,7 @@
 
     <h2>Reviews:</h2>
   
-      <%= form_for new_review_path, method: 'post' do |f| %>
+      <%= form_for ([@product, @product.reviews.new]) do |f| %>
         <div class="field">
           <%= f.label :description %>
           </br>
