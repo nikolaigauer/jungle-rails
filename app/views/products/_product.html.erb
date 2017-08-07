@@ -8,7 +8,6 @@
     
     <%= link_to product do %>
       <% sum = product.reviews.sum(:rating) or 1 / product.reviews.size or 1 %>
-
         <% if sum == 1 %>
           <aside class="review">
             <i class="fa fa-star" aria-hidden="true"></i>

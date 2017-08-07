@@ -26,7 +26,7 @@
       </div>
 
       <div class="row">
-        <% sum = @product.reviews.sum(:rating) / @product.reviews.size or 1 %>
+        <% sum = @product.reviews.sum(:rating) or 1 / @product.reviews.size or 1 %>
         <h2>Reviews: 
         
         <% if sum == 1 %>
