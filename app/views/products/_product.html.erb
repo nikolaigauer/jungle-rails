@@ -7,7 +7,6 @@
     <% end %>
     
     <%= link_to product do %>
-      <%= @sum %>
       <% sum = product.reviews.sum(:rating) or 1 / product.reviews.size or 1 %>
 
         <% if sum == 1 %>
