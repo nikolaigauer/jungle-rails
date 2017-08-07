@@ -23,22 +23,32 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+        <aside class="review">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </aside>
       </div>
 
       <div class="row">
         <h2>Reviews:</h2>
+
+        <%= @product.reviews.order(name: :desc) %>
         <% @product.reviews.order(created_at: :desc).each do |review| %>
         <div class="review">
-          <div>
+          <div> Written by user:
             <%= review.user&.name %>
           </div>
-          <div>
+          <div> Rating:
             <%= review.rating %>
           </div>
-          <div>
+          <div> Review:
             <%= review.description %>
           </div>
         </div>
+        </br>
         <% end %>
       </div>
 
