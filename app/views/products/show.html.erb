@@ -24,7 +24,9 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+
       <div class="row">
+        <h2>Reviews:</h2>
         <% @product.reviews.order(created_at: :desc).each do |review| %>
         <div class="review">
           <div>
@@ -40,8 +42,7 @@
         <% end %>
       </div>
 
-    <h2>Reviews:</h2>
-  
+      <h2>Write a new review</h2>
       <%= form_for [@product, @product.reviews.build] do |f| %>
         <div class="field">
           <%= f.label :description %>
@@ -51,7 +52,7 @@
           <%= f.label :rating %> 
         </br>
           <%= f.select (:rating) do %>
-            <% [['1', 1], ['2', 2],['3', 3], ['4', 4], ['5', 5]].each do |rating| %>
+            <% [[1], [2],[3], [4], [5]].each do |rating| %>
               <%= content_tag(:option, rating.first, value: rating.last) %>
             <% end %>
           <% end %>
