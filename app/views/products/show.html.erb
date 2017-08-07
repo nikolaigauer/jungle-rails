@@ -28,7 +28,7 @@
         <% @product.reviews.order(created_at: :desc).each do |review| %>
         <div class="review">
           <div>
-            <%= review.user %>
+            <%= review.user&.name %>
           </div>
           <div>
             <%= review.rating %>
