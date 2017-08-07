@@ -29,6 +29,8 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 cat4 = Category.find_or_create_by! name: 'Cheese'
+cat5 = Category.find_or_create_by! name: 'Marbles'
+
 
 
 ## PRODUCTS
@@ -126,7 +128,7 @@ cat3.products.create!({
   price: 987.65
 })
 
-cat3.products.create!({
+product_review_test = cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
@@ -136,12 +138,10 @@ cat3.products.create!({
 
 ## REVIEWS
 
-Review.destroy_all
 
-Review.create!({
+product_review_test.reviews.create!({
   description: "HOLY MOOOOOLYYYYY SUCH A GOOD BOOKSHELF!",
   rating: 4,
-  user_id: 1,
   product_id: 12
 })
 
