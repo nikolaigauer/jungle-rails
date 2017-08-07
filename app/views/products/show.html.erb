@@ -26,9 +26,47 @@
       </div>
 
       <div class="row">
-        <h2>Reviews:</h2>
+        <% sum = @product.reviews.sum(:rating) / @product.reviews.size %>
+        <h2>Reviews: 
+        
+        <% if sum == 1 %>
+              <aside class="review">
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </aside>
+            <% end %>
+            <% if sum == 2 %>
+              <aside class="review">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </aside>
+            <% end %>
+            <% if sum == 3 %>
+              <aside class="review">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>              
+              </aside>
+            <% end %>
+            <% if sum == 4 %>
+              <aside class="review">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>   
+              </aside>
+            <% end %>
+            <% if sum == 5 %>
+              <aside class="review">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>              
+              </aside>
+            <% end %>
+          </h2>
+       
         <% @product.reviews.order(created_at: :desc).each do |review| %>
-        <%= review.rating * review.rating.size %>
         <div class="review">
           <div>
             <% if review.rating == 1 %>
@@ -66,6 +104,7 @@
                 <i class="fa fa-star" aria-hidden="true"></i>              
               </aside>
             <% end %>
+        <% @sum = sum %>
           <div> Written by user:
             <%= review.user&.name %>
           </div>
