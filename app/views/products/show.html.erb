@@ -23,26 +23,51 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
-        <aside class="review">
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-        </aside>
       </div>
 
       <div class="row">
         <h2>Reviews:</h2>
-
-        <%= @product.reviews.order(name: :desc) %>
         <% @product.reviews.order(created_at: :desc).each do |review| %>
+        <%= review.rating * review.rating.size %>
         <div class="review">
+          <div>
+            <% if review.rating == 1 %>
+              <aside class="review">
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </aside>
+            <% end %>
+            <% if review.rating == 2 %>
+              <aside class="review">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </aside>
+            <% end %>
+            <% if review.rating == 3 %>
+              <aside class="review">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>              
+              </aside>
+            <% end %>
+            <% if review.rating == 4 %>
+              <aside class="review">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>   
+              </aside>
+            <% end %>
+            <% if review.rating == 5 %>
+              <aside class="review">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>              
+              </aside>
+            <% end %>
           <div> Written by user:
             <%= review.user&.name %>
-          </div>
-          <div> Rating:
-            <%= review.rating %>
           </div>
           <div> Review:
             <%= review.description %>
