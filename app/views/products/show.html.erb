@@ -24,6 +24,21 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+      <div class="row">
+        <% @product.reviews.order(created_at: :desc).each do |review| %>
+        <div class="review">
+          <div>
+            <%= review.user %>
+          </div>
+          <div>
+            <%= review.rating %>
+          </div>
+          <div>
+            <%= review.description %>
+          </div>
+        </div>
+        <% end %>
+      </div>
 
     <h2>Reviews:</h2>
   

@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
+  root to: 'products#index'
 
   resources :reviews
   
   devise_for :models
+
   namespace :admin do
     resources :categories
   end
-  root to: 'products#index'
 
-  resources :products, only: [:index, :show] do
-    resources :reviews
-  end
+  resources :products, only: [:index, :show]
   resources :categories, only: [:show]
+
+  resources :products do
+    resources :reviews, only: [:create, :destroy]
+  end
 
   resource :cart, only: [:show] do
     put    :add_item
