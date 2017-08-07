@@ -24,11 +24,10 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
-    </div>
 
     <h2>Reviews:</h2>
   
-      <%= form_for ([@product, @product.reviews.new]) do |f| %>
+      <%= form_for [@product, @product.reviews.build] do |f| %>
         <div class="field">
           <%= f.label :description %>
           </br>
@@ -44,6 +43,8 @@
       <% end %>
 
 
+
+    </div>
   </article>
 
 </section>

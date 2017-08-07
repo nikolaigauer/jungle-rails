@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action require_login
+  before_action :require_login
 
   # GET /reviews
   # GET /reviews.json
@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).parmit(:rating, :description)
+    params.require(:review).permit(:rating, :description)
   end
 
   def destroy
