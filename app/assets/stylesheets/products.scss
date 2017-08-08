@@ -55,9 +55,10 @@ main section.categories-show {
 
       aside.review {
         position: absolute;
+        float: right;
         color: yellow;
         top: 3em;
-        right: 0;
+        right: 0px;
         padding: 10px;
         background-color: #cbc1de;
         border-top-left-radius: 20px;
