@@ -8,58 +8,15 @@
     
     <%= link_to product do %>
       <% sum = product.reviews.sum(:rating) / (product.reviews.size.nonzero? || 1) %>
-        <% if sum == 1 %>
-          <aside class="review">
-            <i class="fa fa-star" aria-hidden="true"></i>
-          </aside>
-        <% end %>
+
+      <aside class="review">
+        <% sum.times do %>
+          <i class="fa fa-star" aria-hidden="true"></i>
           </br>
-        <% if sum == 2 %>
-          <aside class="review">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            </br>
-            <i class="fa fa-star" aria-hidden="true"></i>
-          </aside>
         <% end %>
-          </br>
-        <% if sum == 3 %>
-          <aside class="review">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            </br>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            </br>
-            <i class="fa fa-star" aria-hidden="true"></i>
-          </aside>
-        <% end %>
-          </br>
-        <% if sum == 4 %>
-          <aside class="review">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            </br>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            </br>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            </br>          
-            <i class="fa fa-star" aria-hidden="true"></i>
-          </aside>
-        <% end %>
-          </br>
-        <% if sum == 5 %>
-          <aside class="review">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            </br>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            </br>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            </br>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            </br>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            </br>
-          </aside>
-        <% end %>
-          </br>
-      <% end %>
+      </aside>
+
+    <% end %>
 
            
 

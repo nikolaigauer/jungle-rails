@@ -26,49 +26,21 @@
       </div>
 
       <div class="row">
-        <% sum = (@product.reviews.sum(:rating) / @product.reviews.size) or 1 %>
-        <h2>Reviews: 
-        
-        <% if sum == 1 %>
-              <aside class="review">
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </aside>
+        <% sum = @product.reviews.sum(:rating) / (@product.reviews.size.nonzero? || 1) %>
+        <h2>
+          Reviews:
+          <aside class="review">
+            <% sum.times do %>
+              <i class="fa fa-star" aria-hidden="true"></i>
             <% end %>
-            <% if sum == 2 %>
-              <aside class="review">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </aside>
-            <% end %>
-            <% if sum == 3 %>
-              <aside class="review">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>              
-              </aside>
-            <% end %>
-            <% if sum == 4 %>
-              <aside class="review">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>   
-              </aside>
-            <% end %>
-            <% if sum == 5 %>
-              <aside class="review">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>              
-              </aside>
-            <% end %>
-          </h2>
+          </aside>
+        </h2>
+              
        
-        <% @product.reviews.order(created_at: :desc).each do |review| %>
+        <% user_rating = @product.reviews.order(created_at: :desc).each do |review| %>
         <div class="review">
           <div>
+
             <% if review.rating == 1 %>
               <aside class="review">
                 <i class="fa fa-star" aria-hidden="true"></i>
