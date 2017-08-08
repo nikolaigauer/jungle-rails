@@ -22,7 +22,7 @@ end
 # Let's do this ...
 
 ## USERS
-User.create: "Donald", last_name: "Duck", email: "donald@duck.com"
+User.create: "Donald", last_name: "Duck", email: "donald@duck.com", passsword: "MAGA"
 
 ## CATEGORIES
 
