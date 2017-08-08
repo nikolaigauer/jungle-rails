@@ -21,6 +21,9 @@ end
 
 # Let's do this ...
 
+## USERS
+User.create: "Donald", last_name: "Duck", email: "donald@duck.com"
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
