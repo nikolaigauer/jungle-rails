@@ -4,7 +4,7 @@ RSpec.describe Product, type: :model do
   before :each do
     @cat5 = Category.find_or_create_by name: 'Marbles'
     @product = @cat5.products.create({
-    name: "A NICE HAT",
+    name: "naaaaaame",
     price: 9,
     quantity: 18
     })
